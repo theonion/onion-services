@@ -7,6 +7,6 @@ elasticsearchdata:
   build: ./elasticsearch-data
   command: true
 elasticsearch:
-  image: dockerfile/elasticsearch
+  build: ./elasticsearch
   volumes_from:
     - elasticsearchdata
