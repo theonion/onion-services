@@ -1,0 +1,12 @@
+postgres:
+  image: postgres
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: onion321
+elasticsearchdata:
+  build: ./elasticsearch-data
+  command: true
+elasticsearch:
+  image: dockerfile/elasticsearch
+  volumes_from:
+    - elasticsearchdata
