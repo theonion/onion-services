@@ -5,9 +5,9 @@
 #
 
 # Pull base image.
-FROM dockerfile/java:oracle-java8
+FROM java:8
 
-ENV ES_PKG_NAME elasticsearch-1.3.2
+ENV ES_PKG_NAME elasticsearch-1.4.4
 
 # Install ElasticSearch.
 RUN \
@@ -23,7 +23,7 @@ RUN mkdir /plugins
 
 # Mount elasticsearch.yml config
 ADD elasticsearch.yml /elasticsearch/config/elasticsearch.yml
-RUN /elasticsearch/bin/plugin --install elasticsearch/elasticsearch-cloud-aws/2.3.0
+RUN /elasticsearch/bin/plugin --install elasticsearch/elasticsearch-cloud-aws/2.4.1
 
 # Define working directory.
 WORKDIR /data

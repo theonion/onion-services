@@ -3,6 +3,8 @@ postgres:
   environment:
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: onion321
+  ports:
+    - "5432:5432"
 elasticsearchdata:
   build: ./elasticsearch-data
   command: true
@@ -10,3 +12,11 @@ elasticsearch:
   build: ./elasticsearch
   volumes_from:
     - elasticsearchdata
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+rabbitmq:
+  image: rabbitmq
+  ports:
+      - "5672:5672"
+      - "15672:15672"
