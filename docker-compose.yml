@@ -1,5 +1,5 @@
 postgres:
-  image: postgres
+  image: postgres:9.4
   environment:
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: onion321
@@ -20,3 +20,14 @@ rabbitmq:
   ports:
       - "5672:5672"
       - "15672:15672"
+fastrouter:
+  build: ./fastrouter
+  ports:
+      - "80:80"
+      # TODO: Correct?
+      - "8000:8000"
+memcached:
+  image: memcached
+  ports:
+      - "11211:11211"
+
