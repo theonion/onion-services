@@ -16,16 +16,16 @@ This is a set of containers that provide basic services for use in development. 
 
 3. Create Docker machine VirtualBox VM (recommended at least 4GB RAM, 40GB HD). For example, to create machine named 'docker':
 
-    `docker-machine create --driver virtualbox --virtualbox-memory 4096 --virtualbox-disk-size 40000 dev`
+    `docker-machine create --driver virtualbox --virtualbox-memory 4096 --virtualbox-disk-size 40000 docker-dev`
 
 4. Make sure Docker machine VM is running, and start if necessary:
 
     `docker-machine ls`
-    `docker-machine start dev`
+    `docker-machine start docker-dev`
 
 5. Make sure Docker machine is configured in current shell by running:
 
-    `eval "$(docker-machine env dev)"`
+    `eval "$(docker-machine env docker-dev)"`
     `env`
 
 You should see "DOCKER_HOST" listed as an environment variable
@@ -44,7 +44,7 @@ On OSX, docker runs inside a VirtualBox "docker-machine / boot2docker" instance.
 
 2. You can add these to your current shell instance via
 
-    `eval $(docker-machine env dev)`
+    `eval $(docker-machine env docker-dev)`
 
 **Recommended:** Put this in your shell config (~/.bash_profile, ~/.bashrc, ~/.zshrc, etc.) to auto-setup each new shell
 
