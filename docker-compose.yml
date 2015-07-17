@@ -7,7 +7,7 @@ postgres:
     - "5432:5432"
 elasticsearchdata:
   build: ./elasticsearch-data
-  command: true
+  command: "true"
 elasticsearch:
   build: ./elasticsearch
   volumes_from:
