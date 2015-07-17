@@ -10,9 +10,7 @@ This is a set of containers that provide basic services for use in development. 
 
 2. Verify you're using docker v1.7+, docker-compose 1.3.1+, docker-machine 0.3.0+
 
-    `docker --version`
-    `docker-compose --version`
-    `docker-machine --version`
+    `docker --version && docker-compose --version && docker-machine --version`
 
 3. Create Docker machine VirtualBox VM (recommended at least 4GB RAM, 40GB HD). For example, to create machine named 'docker':
 
