@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+# Docker cleanup (and ignore errors)
+docker rm -v $(docker ps -a -q -f status=exited) 2> /dev/null || true
+docker rmi $(docker images -f "dangling=true" -q) 2> /dev/null || true
