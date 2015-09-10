@@ -4,6 +4,14 @@ This is a set of containers that provide basic services for use in development. 
 
 ## OSX Setup instructions
 
+### Short Version
+
+1. Run ```scripts/init```
+
+2. Setup OSX Docker Shell Enviornment (see below)
+
+### Long Version
+
 1. Install Docker:
 
         > brew update && brew install docker docker-machine docker-compose

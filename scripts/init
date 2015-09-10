@@ -1,0 +1,35 @@
+#!/bin/sh -e
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Install docker dependencies
+which docker || brew install docker
+which docker-compose || brew install docker-compose
+which docker-machine || brew install docker-machine
+docker --version && docker-compose --version && docker-machine --version
+
+# Check if Docker VM already exists
+if docker-machine ls | grep "^docker-dev"
+then
+    read -p "This will destroy your current Docker VM. Are you sure? (y/N)" -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    then
+        exit 1
+    fi
+    docker-machine kill docker-dev
+    docker-machine rm --force docker-dev
+fi
+
+docker-machine create --driver virtualbox --virtualbox-memory 5120 --virtualbox-disk-size 40000 docker-dev
+
+eval "$(docker-machine env docker-dev)"
+
+echo "********************************************************************************"
+echo "Add the following to your shell config (~/.bashrc, ~/.bash_profile, ~/.zshrc, etc.)"
+echo
+echo '    eval "$(docker-machine env docker-dev)"'
+echo
+echo "********************************************************************************"
+
+$SCRIPT_DIR/serve
