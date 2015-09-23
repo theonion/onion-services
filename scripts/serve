@@ -3,5 +3,6 @@
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 docker-machine start docker-dev
+eval "$(docker-machine env docker-dev)"
 $SCRIPT_DIR/build
 docker-compose up $@
