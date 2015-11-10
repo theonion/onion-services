@@ -49,7 +49,7 @@ This is a set of containers that provide basic services for use in development. 
 
 ## OSX Docker Shell Environment
 
-***SUPER IMPORTANT -- READ THIS TO AVOID MANY HEADACHES***
+### SUPER IMPORTANT -- READ THIS TO AVOID MANY HEADACHES
 
 On OSX, docker runs inside a VirtualBox **docker-machine** instance (formerly known as **boot2docker**). This extra layer requires some shell environment variables to tie everything together. 
 
@@ -76,6 +76,15 @@ When you startup a new shell, make sure make sure that your shell environment va
     export DOCKER_MACHINE_NAME="docker-dev"
 
 **Note:** Make sure you're running docker-machine v0.3.1+, otherwise, if your *docker-dev* VM is not running, your new shell will hang on startup while your RC file tries to connect to the (not running) VM to setup the environment variables. This was fixed in v0.3.1 to quickly exit.
+
+### Removing InsecurePlatformWarning
+If everytime you use docker you see an ```InsecurePlatformWarning``` message, as [described here](https://github.com/koalalorenzo/python-digitalocean/issues/109), you'll need to install a few extra python libraries by running:
+```bash
+$ pip install --user pyopenssl ndg-httpsclient pyasn1
+```
+
+The warning should then no longer show up.
+
 
 ## Docker Tips
 
