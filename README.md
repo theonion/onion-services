@@ -77,15 +77,6 @@ When you startup a new shell, make sure make sure that your shell environment va
 
 **Note:** Make sure you're running docker-machine v0.3.1+, otherwise, if your *docker-dev* VM is not running, your new shell will hang on startup while your RC file tries to connect to the (not running) VM to setup the environment variables. This was fixed in v0.3.1 to quickly exit.
 
-### Removing InsecurePlatformWarning
-If everytime you use docker you see an ```InsecurePlatformWarning``` message, as [described here](https://github.com/koalalorenzo/python-digitalocean/issues/109), you'll need to install a few extra python libraries by running:
-```bash
-$ pip install --user pyopenssl ndg-httpsclient pyasn1
-```
-
-The warning should then no longer show up.
-
-
 ## Docker Tips
 
 1. Setup shell aliases for commonly used docker commands
