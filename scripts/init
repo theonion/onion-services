@@ -21,7 +21,15 @@ then
     docker-machine rm --force docker-dev
 fi
 
-docker-machine create --driver virtualbox --virtualbox-memory 5120 --virtualbox-disk-size 40000 docker-dev
+# Use Google DNS to avoid occasional DNS issues with default settings
+USE_DNS=8.8.8.8
+docker-machine create \
+    --driver virtualbox \
+    --virtualbox-cpu-count 2 \
+    --virtualbox-memory 5120 \
+    --virtualbox-disk-size 50000 \
+    --engine-opt dns=$USE_DNS \
+    docker-dev
 
 eval "$(docker-machine env docker-dev)"
 
