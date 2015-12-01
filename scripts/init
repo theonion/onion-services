@@ -22,13 +22,13 @@ then
 fi
 
 # Use Google DNS to avoid occasional DNS issues with default settings
-USE_DNS=8.8.8.8
 docker-machine create \
     --driver virtualbox \
     --virtualbox-cpu-count 2 \
     --virtualbox-memory 5120 \
     --virtualbox-disk-size 50000 \
-    --engine-opt dns=$USE_DNS \
+    --engine-opt dns=8.8.8.8 \
+    --engine-opt dns=8.8.4.4 \
     docker-dev
 
 eval "$(docker-machine env docker-dev)"
