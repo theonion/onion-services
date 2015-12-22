@@ -30,4 +30,17 @@ memcached:
   image: memcached
   ports:
       - "11211:11211"
-
+vault:
+  image: sjourdan/vault
+  ports:
+    - "8201:8201"
+  expose:
+    - "8201"
+  hostname: vault
+  volumes:
+    - /srv/vault
+    - ./vault/config.hcl:/srv/config.hcl:ro
+    - ./vault/start_vault.sh:/usr/local/bin/start_vault.sh:ro
+  cap_add:
+    - IPC_LOCK
+  entrypoint: /usr/local/bin/start_vault.sh
