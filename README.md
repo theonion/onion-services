@@ -91,6 +91,14 @@ When you startup a new shell, make sure make sure that your shell environment va
 
         docker ps
 
+## Elasticsearch
+
+If you want to use the `onion-services` elasticsearch locally, such as when developing `django-bulbs`, you'll need to forward port `9200` in virtualbox.
+
+It's a couple menus deep. Select the `docker-dev` box in the VirtualBox UI. Click `settings` > `network` > `Port Forwarding`. Configure like this:
+
+<img src="https://www.evernote.com/shard/s636/sh/77aad7da-ad00-4eb8-b479-c2ffc6afb46d/9f36e3e87c6a12dc/res/44a02631-9bab-4510-add4-bfa33b8c2ca8/skitch.png" />
+
 ## Vault
 
 To interact with onion-services Vault:
