@@ -22,7 +22,7 @@ This is a set of containers that provide basic services for use in development. 
 
 3. Create Docker machine VirtualBox VM (recommended 4GB+ RAM, 40GB+ Disk) named *docker-dev*
 
-        > docker-machine create --driver virtualbox --virtualbox-memory 4096 --virtualbox-disk-size 40000 docker-dev
+        > docker-machine create --driver virtualbox --virtualbox-cpu-count 2 --virtualbox-memory 5120 --virtualbox-disk-size 50000 --engine-opt dns=8.8.8.8 --engine-opt dns=8.8.4.4 docker-dev
 
 4. Make sure Docker machine VM is running, and start if necessary:
 
