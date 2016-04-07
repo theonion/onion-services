@@ -1,14 +1,6 @@
-FROM python:2.7-wheezy
+FROM python:3.5
+MAINTAINER Onion Tech <webtech@theonion.com>
 
-RUN pip install uwsgi
+RUN pip install "uwsgi<2.1"
 
-COPY uwsgi.ini /www/fastrouter/
-
-# Default Command
-CMD ["uwsgi", "/www/fastrouter/uwsgi.ini"]
-
-# Expose ports.
-#   - 80: External HTTP
-#   - 8000: Internal HTTP
-EXPOSE 80
-EXPOSE 8000
+ENTRYPOINT ["uwsgi"]
