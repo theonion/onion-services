@@ -18,14 +18,25 @@ elasticsearch:
 rabbitmq:
   image: rabbitmq:management
   ports:
-      - "5672:5672"
-      - "15672:15672"
+    - "5672:5672"
+    - "15672:15672"
 fastrouter:
-  build: ./fastrouter
+  build: ./uwsgi
+  command: >
+    --master
+    --fastrouter-subscription-server ":8000"
+    --http ":80"
+    --http-to /tmp/fastrouter-uncached.sock
+    --fastrouter /tmp/fastrouter-uncached.sock
+    --fastrouter-cheap
+    --fastrouter-timeout 600
+    --fastrouter-processes 2
   ports:
-      - "80:80"
-      # TODO: Correct?
-      - "8000:8000"
+    - "80:80"
+    - "8000:8000"
+  expose:
+    - "80"
+    - "8000"
 memcached:
   image: memcached
   ports:
