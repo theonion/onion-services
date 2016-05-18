@@ -23,6 +23,7 @@ rabbitmq:
 fastrouter:
   build: ./uwsgi
   command: >
+    uwsgi
     --master
     --fastrouter-subscription-server ":8000"
     --http ":80"
