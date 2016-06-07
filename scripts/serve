@@ -2,9 +2,6 @@
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-# Some instances of docker-machine fail if machine already started
-docker-machine start docker-dev || true
-
 eval "$(docker-machine env docker-dev)"
 $SCRIPT_DIR/build
 docker-compose up $@
